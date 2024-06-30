@@ -16,7 +16,6 @@ class timeLineTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return Padding(
       padding: EdgeInsets.only(left: screenWidth * 0.05),
       child: TimelineTile(

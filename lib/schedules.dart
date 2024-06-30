@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nursery/Components/TimeLine.dart';
 import 'package:nursery/nav.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 class Schedules extends StatefulWidget {
   const Schedules({super.key});
 
@@ -12,8 +11,6 @@ class Schedules extends StatefulWidget {
 class _SchedulesState extends State<Schedules> {
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         drawer: Nav(),
         appBar: AppBar(

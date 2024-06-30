@@ -13,8 +13,7 @@ class card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    
     return Container(
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
