@@ -63,6 +63,8 @@ flutter:
     - assets/images/activity.png
     - assets/images/act2.png
     - assets/images/education.png
+    - assets/images/trip.png
+    - assets/images/forest.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

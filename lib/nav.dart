@@ -3,6 +3,7 @@ import 'package:nursery/Activity.dart';
 import 'package:nursery/Education.dart';
 import 'package:nursery/home.dart';
 import 'package:nursery/schedules.dart';
+import 'package:nursery/trips.dart';
 
 class Nav extends StatefulWidget {
   const Nav({super.key});
@@ -272,7 +273,12 @@ class _NavState extends State<Nav> {
             ),
             SizedBox(height: screenHeight * 0.04),
             ElevatedButton(
-              onPressed: () => {},
+              onPressed: () => {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context)=>const Trips())
+                )
+              },
               style: ButtonStyle(
                 elevation:
                     WidgetStateProperty.all(0), // Remove the button elevation
