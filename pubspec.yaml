@@ -67,6 +67,7 @@ flutter:
     - assets/images/forest.png
     - assets/images/sucess.png
     - assets/images/kid_pic.png
+    - assets/images/memories.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

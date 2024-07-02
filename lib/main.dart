@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nursery/Home.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:nursery/MyKid.dart';
 
 void main() {
   runApp(
@@ -20,9 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Revo Nursery',
       debugShowCheckedModeBanner: false,
-      home: Mykid(),
+      home: home(),
     );
   }
 }

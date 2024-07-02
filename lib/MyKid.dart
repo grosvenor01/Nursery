@@ -76,10 +76,10 @@ class _MykidState extends State<Mykid> {
               ),
 
               Container(
-                height: screenHeight*0.1,
+                height:90,
                 width: screenWidth*0.9,
                 margin: EdgeInsets.only(left: screenWidth*0.05 , top: 3),
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(142, 142, 142, 0.2),
                   borderRadius: BorderRadius.circular(10),
@@ -260,7 +260,7 @@ class _MykidState extends State<Mykid> {
                         width : screenWidth * 0.15,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Color.fromRGBO(142, 142, 142, 0.6)),
+                            color: Color.fromRGBO(142, 142, 142, 0.3)),
                         child: Center(
                             child: Icon(
                           Icons.add,

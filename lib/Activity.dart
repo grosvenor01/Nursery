@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nursery/MyKid.dart';
 import 'package:nursery/nav.dart';
 
 class Activity extends StatefulWidget {
@@ -44,14 +45,20 @@ class _ActivityState extends State<Activity> {
             },
           ),
           const SizedBox(width: 20),
-          Container(
-            height: 35,
-            width: 35,
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: AssetImage("assets/images/profile.png"))),
-          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Mykid()));
+              },
+              child: Container(
+                height: 35,
+                width: 35,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/profile.png"))),
+              ),
+            ),
           const SizedBox(width: 10),
         ],
       ),
