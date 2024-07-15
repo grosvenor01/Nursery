@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "917797525094",
+    "project_id": "nursery-954dc",
+    "storage_bucket": "nursery-954dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917797525094:android:0797ecb4981222c8887fa7",
+        "android_client_info": {
+          "package_name": "com.RevoDevs.nursery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB-deIlP5ngI4-UCgjqEatO-sSl-d4cY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
