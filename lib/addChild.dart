@@ -14,9 +14,9 @@ class Addchild extends StatefulWidget {
 class _AddchildState extends State<Addchild> {
   var Fullname = "";
   var Age;
-  var email;
-  var phoneNumber;
-  var gender;
+  var email="";
+  var phoneNumber="";
+  var gender="";
   var _errorEmail = '', _errorAge = '';
   var emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
   @override
@@ -295,7 +295,8 @@ class _AddchildState extends State<Addchild> {
                 margin: EdgeInsets.only(left: screenWidth * 0.05),
                 child: ElevatedButton(
                     onPressed: () => {
-                      if(_errorAge.isEmpty && _errorEmail.isEmpty){
+                      
+                      if(_errorAge.isEmpty && _errorEmail.isEmpty && Fullname.isNotEmpty && gender.isNotEmpty && phoneNumber.isNotEmpty){
                         addchild(Fullname, email, Age, gender, phoneNumber),
                         Navigator.push(
                           context,

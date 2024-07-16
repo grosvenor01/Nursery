@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nursery/MyKid.dart';
 import 'package:nursery/nav.dart';
@@ -10,6 +11,14 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  var data = [];
+  Future<void> getactivities() async {
+    CollectionReference collection =
+        FirebaseFirestore.instance.collection("Acitivity");
+    QuerySnapshot query = await collection.get();
+    data.addAll(query.docs);
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -337,13 +346,15 @@ class _homeState extends State<home> {
                                 fit: BoxFit.cover),
                             borderRadius: BorderRadius.circular(8)),
                       ),
-                      const Column(
+                      Column(
                         children: [
+
                           SizedBox(
                             height: 10,
                           ),
+                          for(final i in data)
                           Text(
-                            "Drawing & Coloring",
+                            i["Title"],
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 15,
@@ -439,211 +450,6 @@ class _homeState extends State<home> {
                       )
                     ]),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: screenWidth * 0.025, top: 30),
-                child: const Text(
-                  "FeedBack & Reviews",
-                  style: TextStyle(
-                      fontFamily: "Poppins", fontSize: 20, color: Colors.black),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: screenWidth * 0.025),
-                child: const Text(
-                  "Here is some of our clients’s feedbacks about\nus and the services we ive",
-                  style: TextStyle(
-                      color: Color.fromRGBO(142, 142, 142, 0.7),
-                      fontFamily: "Poppins",
-                      fontSize: 13),
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    Container(
-                      height: screenHeight * 0.18,
-                      width: screenWidth * 0.95,
-                      margin: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.025, vertical: 10),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 52,
-                                width: 52,
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image:
-                                            AssetImage("images/profile.png"))),
-                              ),
-                              const Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 3, top: 10),
-                                    child: Text(
-                                      "Saidi Abdelkader",
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 13,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                  Padding(
-                                      padding: EdgeInsets.only(left: 3),
-                                      child: const Row(
-                                        children: [
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color: Color.fromRGBO(
-                                                232, 232, 232, 1),
-                                          ),
-                                        ],
-                                      )),
-                                ],
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: screenWidth * 0.025),
-                            child: const Text(
-                              "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua.",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(142, 142, 142, 0.7),
-                                  fontFamily: "Poppins",
-                                  fontSize: 13),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: screenWidth * 0.05,
-                    ),
-                    Container(
-                      height: screenHeight * 0.18,
-                      width: screenWidth * 0.95,
-                      margin: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.025, vertical: 10),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 52,
-                                width: 52,
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                        image:
-                                            AssetImage("images/profile.png"))),
-                              ),
-                              const Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 3, top: 10),
-                                    child: Text(
-                                      "Saidi Abdelkader",
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 13,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                  Padding(
-                                      padding: EdgeInsets.only(left: 3),
-                                      child: const Row(
-                                        children: [
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color:
-                                                Color.fromRGBO(250, 191, 53, 1),
-                                          ),
-                                          Icon(
-                                            Icons.star_rounded,
-                                            size: 17,
-                                            color: Color.fromRGBO(
-                                                232, 232, 232, 1),
-                                          ),
-                                        ],
-                                      )),
-                                ],
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: screenWidth * 0.025),
-                            child: const Text(
-                              "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua.",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(142, 142, 142, 0.7),
-                                  fontFamily: "Poppins",
-                                  fontSize: 13),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              )
             ],
           ),
         ));

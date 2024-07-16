@@ -1,7 +1,18 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:nursery/tripDesc.dart';
 
 class tripcard extends StatelessWidget {
-  const tripcard({super.key});
+  String title;
+  var rating;
+  String picture;
+  tripcard({
+    required this.title,
+    required this.picture,
+    required this.rating,
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +27,31 @@ class tripcard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            height: screenHeight * 0.3,
-            width: screenWidth * 0.42,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: const DecorationImage(
-                    image: AssetImage("images/forest.png"), fit: BoxFit.cover)),
-          ),
-          const Text(
-            "Chrea Trip",
-            style: TextStyle(
+              height: screenHeight * 0.3,
+              width: screenWidth * 0.42,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: NetworkImage(picture),
+                      fit: BoxFit.cover)),
+              child: ElevatedButton(
+                onPressed: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => tripDesc(title:title)))
+                },
+                style: ButtonStyle(
+                  elevation:
+                      MaterialStateProperty.all<double>(0), // Remove elevation
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.transparent),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.transparent),
+                ),
+                child: null,
+              )),
+          Text(
+            title,
+            style: const TextStyle(
               fontFamily: "Poppins",
               fontSize: 15,
             ),

@@ -6,10 +6,16 @@ class timeLineTile extends StatelessWidget {
   final bool isFirst;
   final bool isLast;
   final bool isPast;
+  final String title;
+  final String description;
+  final String time;
   const timeLineTile({
     required this.isFirst,
     required this.isLast,
     required this.isPast, 
+    required this.title,
+    required this.description,
+    required this.time,
     super.key
   });
 
@@ -27,8 +33,7 @@ class timeLineTile extends StatelessWidget {
           color: Color.fromRGBO(4, 195, 255, 1),
           width: 20,
         ),
-        
-        endChild: card(isFirst: isFirst, isLast: false, isPast: false),
+        endChild: card(isFirst: isFirst, isLast: false, isPast: false, description :description, title :title, time : time),
       ),
     );
   }

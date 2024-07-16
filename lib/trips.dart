@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:nursery/Components/trip.dart';
@@ -12,10 +13,25 @@ class Trips extends StatefulWidget {
 }
 
 class _TripsState extends State<Trips> {
+  var data = [];
+  getTrips() async {
+    QuerySnapshot query =
+        await FirebaseFirestore.instance.collection("Trips").get();
+    data.addAll(query.docs);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getTrips();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
         drawer: Nav(),
         appBar: AppBar(
@@ -96,18 +112,35 @@ class _TripsState extends State<Trips> {
                     fontSize: 15, fontFamily: "Poppins", color: Colors.grey),
               ),
             ),
-            Row(
-              children: [
-                SizedBox(width: screenWidth*0.05),
-                tripcard(),
-                Spacer(),
-                tripcard(),
-                SizedBox(width: screenWidth*0.05),
-              ],
-            )
+            if (data.length > 1)
+              for (var i = 0; i < data.length % 2; i += 2)
+                Row(
+                  children: [
+                    SizedBox(width: screenWidth * 0.05),
+                    tripcard(
+                        title: data[i]["Title"],
+                        picture: data[i]["picture"],
+                        rating: data[i]["rating"]),
+                    Spacer(),
+                    tripcard(
+                        title: data[i + 1]["Title"],
+                        picture: data[i + 1]["picture"],
+                        rating: data[i + 1]["rating"]),
+                    SizedBox(width: screenWidth * 0.05),
+                  ],
+                ),
+            if (data.length % 2 == 1)
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.05),
+                  tripcard(
+                      title: data[data.length - 1]["Title"],
+                      picture: data[data.length - 1]["picture"],
+                      rating: data[data.length - 1]["rating"]),
+                  Spacer(),
+                ],
+              )
           ],
-        )
-      )
-    );
+        )));
   }
 }

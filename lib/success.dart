@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nursery/MyKid.dart';
+import 'package:nursery/home.dart';
 
 class Success extends StatelessWidget {
   const Success({super.key});
@@ -47,7 +48,7 @@ class Success extends StatelessWidget {
               onPressed: () => {
                 Navigator.push(
                   context, 
-                  MaterialPageRoute(builder: (context)=>const Mykid())
+                  MaterialPageRoute(builder: (context)=>const home())
                 )
               },
               style: ElevatedButton.styleFrom(

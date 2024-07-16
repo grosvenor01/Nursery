@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nursery/Activity.dart';
-import 'package:nursery/Education.dart';
 import 'package:nursery/addChild.dart';
 import 'package:nursery/home.dart';
 import 'package:nursery/schedules.dart';
@@ -229,54 +228,6 @@ class _NavState extends State<Nav> {
               onPressed: () => {
                 Navigator.push(
                   context, 
-                  MaterialPageRoute(builder: (context)=>const Education())
-                )
-              },
-              style: ButtonStyle(
-                elevation:
-                    WidgetStateProperty.all(0), // Remove the button elevation
-                overlayColor: WidgetStateProperty.all(
-                    Colors.transparent), // Disable the hover effect
-                foregroundColor: WidgetStateProperty.all(Colors
-                    .transparent), // Set the button text color to transparent
-                backgroundColor: WidgetStateProperty.all(Colors
-                    .transparent), // Set the button background color to transparent
-                padding: WidgetStateProperty.all(
-                    EdgeInsets.zero), // Remove the button padding
-                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.zero, // Remove the button rounded corners
-                  ),
-                ),
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: screenWidth * 0.05,
-                  ),
-                  const Icon(
-                    Icons.book_outlined,
-                    color: Colors.grey,
-                    size: 35,
-                  ),
-                  SizedBox(width: screenWidth * 0.1),
-                  const Text(
-                    "Education",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: screenHeight * 0.04),
-            ElevatedButton(
-              onPressed: () => {
-                Navigator.push(
-                  context, 
                   MaterialPageRoute(builder: (context)=>const Trips())
                 )
               },
@@ -369,51 +320,7 @@ class _NavState extends State<Nav> {
               ),
             ),
             Spacer(),
-            ElevatedButton(
-              onPressed: () => {},
-              style: ButtonStyle(
-                elevation:
-                    WidgetStateProperty.all(0), // Remove the button elevation
-                overlayColor: WidgetStateProperty.all(
-                    Colors.transparent), // Disable the hover effect
-                foregroundColor: WidgetStateProperty.all(Colors
-                    .transparent), // Set the button text color to transparent
-                backgroundColor: WidgetStateProperty.all(Colors
-                    .transparent), // Set the button background color to transparent
-                padding: WidgetStateProperty.all(
-                    EdgeInsets.zero), // Remove the button padding
-                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.zero, // Remove the button rounded corners
-                  ),
-                ),
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: screenWidth * 0.05,
-                  ),
-                  const Icon(
-                    Icons.logout,
-                    color: Colors.grey,
-                    size: 35,
-                  ),
-                  SizedBox(width: screenWidth * 0.1),
-                  const Text(
-                    "Log out",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            )
+            
           ],
         ));
   }
