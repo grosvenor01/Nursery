@@ -14,9 +14,18 @@ class _homeState extends State<home> {
   var data = [];
   Future<void> getactivities() async {
     CollectionReference collection =
-        FirebaseFirestore.instance.collection("Acitivity");
+        FirebaseFirestore.instance.collection("Activity");
     QuerySnapshot query = await collection.get();
     data.addAll(query.docs);
+    print(data);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getactivities();
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -327,129 +336,73 @@ class _homeState extends State<home> {
                       color: Color.fromRGBO(142, 142, 142, 0.7)),
                 ),
               ),
-              Container(
-                height: screenHeight * 0.15,
-                width: screenWidth * 0.95,
-                margin: EdgeInsets.symmetric(
-                    horizontal: screenWidth * 0.025, vertical: 20),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: screenHeight * 0.14,
-                        width: screenWidth * 0.25,
-                        margin: EdgeInsets.symmetric(vertical: 5),
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image: AssetImage("images/activity.png"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                      Column(
-                        children: [
-
-                          SizedBox(
-                            height: 10,
-                          ),
-                          for(final i in data)
-                          Text(
-                            i["Title"],
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 15,
-                                color: Colors.black),
-                          ),
-                          Spacer(),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              "For Kids in age between \n2-5 years old \nTime:1 hour per day",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 13,
-                                  color: Color.fromRGBO(142, 142, 142, 0.7)),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Colors.grey,
-                          size: 20,
+              for (final i in data)
+                Container(
+                  height: screenHeight * 0.15,
+                  width: screenWidth * 0.95,
+                  margin: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.025, vertical: 20),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: screenHeight * 0.14,
+                          width: screenWidth * 0.25,
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(i["Image"]),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(8)),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      )
-                    ]),
-              ),
-              Container(
-                height: screenHeight * 0.15,
-                width: screenWidth * 0.95,
-                margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.025),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: screenHeight * 0.14,
-                        width: screenWidth * 0.25,
-                        margin: EdgeInsets.symmetric(vertical: 5),
-                        decoration: BoxDecoration(
-                            image: const DecorationImage(
-                                image: AssetImage("images/activity.png"),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                      const Column(
-                        children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Drawing & Coloring",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 15,
-                                color: Colors.black),
-                          ),
-                          Spacer(),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              "For Kids in age between \n2-5 years old \nTime:1 hour per day",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 13,
-                                  color: Color.fromRGBO(142, 142, 142, 0.7)),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 10,
                             ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Colors.grey,
-                          size: 20,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Text(
+                                i["Title"],
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15,
+                                    color: Colors.black),
+                              ),
+                            ),
+                            Spacer(),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                "For Kids in age between \n2-5 years old \nTime:1 hour per day",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(142, 142, 142, 0.7)),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            )
+                          ],
                         ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      )
-                    ]),
-              ),
+                        Spacer(),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Icon(
+                            Icons.favorite_border,
+                            color: Colors.grey,
+                            size: 20,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        )
+                      ]),
+                ),
             ],
           ),
         ));
