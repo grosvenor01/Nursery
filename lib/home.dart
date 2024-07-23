@@ -30,6 +30,7 @@ class _homeState extends State<home> {
 
   @override
   Widget build(BuildContext context) {
+    var _clicked = false;
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -44,12 +45,221 @@ class _homeState extends State<home> {
                   fontFamily: "LilitaOne", fontSize: 30, color: Colors.black),
             ),
             const Spacer(),
-            const Icon(
-              Icons.notifications,
-              color: Colors.grey,
-              size: 27,
+            
+            PopupMenuButton(
+              icon: const Icon(
+                Icons.notifications,
+                color: Colors.grey,
+                size: 27,
+              ),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Notification From Nursery',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            SizedBox(height: 3.0),
+                            Text(
+                              'This is the first option.This is the \noption.This is the first option.',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          height: 10,
+                          width: 10,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue
+                          ),
+                        ),
+                        Spacer()
+                      ],
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Notification From Nursery',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            SizedBox(height: 3.0),
+                            Text(
+                              'This is the first option.This is the \noption.This is the first option.',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          height: 10,
+                          width: 10,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue
+                          ),
+                        ),
+                        Spacer()
+                      ],
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Notification From Nursery',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            SizedBox(height: 3.0),
+                            Text(
+                              'This is the first option.This is the \noption.This is the first option.',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          height: 10,
+                          width: 10,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue
+                          ),
+                        ),
+                        Spacer()
+                      ],
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Notification From Nursery',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            SizedBox(height: 3.0),
+                            Text(
+                              'This is the first option.This is the \noption.This is the first option.',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          height: 10,
+                          width: 10,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue
+                          ),
+                        ),
+                        Spacer()
+                      ],
+                    ),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20.0,bottom: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Notification From Nursery',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            SizedBox(height: 3.0),
+                            Text(
+                              'This is the first option.This is the \noption.This is the first option.',
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          height: 10,
+                          width: 10,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue
+                          ),
+                        ),
+                        Spacer()
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+              onSelected: (value) {
+                switch (value) {
+                  case 'option1':
+                    break;
+                  case 'option2':
+                    break;
+                  case 'option3':
+                    break;
+                }
+              },
             ),
-            const SizedBox(width: 20),
             Builder(
               builder: (context) {
                 return IconButton(
