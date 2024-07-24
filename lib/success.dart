@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nursery/MyKid.dart';
+
 import 'package:nursery/home.dart';
 
 class Success extends StatelessWidget {
@@ -37,7 +37,7 @@ class Success extends StatelessWidget {
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                  image: AssetImage("images/sucess.png"), fit: BoxFit.cover),
+                  image: AssetImage("assets/images/sucess.png"), fit: BoxFit.cover),
             ),
           ),
           SizedBox(height: screenHeight*0.2),

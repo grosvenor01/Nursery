@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nursery/Components/TimeLine.dart';
-import 'package:nursery/MyKid.dart';
+import 'package:nursery/Components/notif.dart';
 import 'package:nursery/nav.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
@@ -19,12 +19,14 @@ class _SchedulesState extends State<Schedules> {
   var day = 1;
   var _isLoading, _isNull = false;
   getschedule() async {
+    _isNull = false;
     _isLoading = true;
-    CollectionReference collection = FirebaseFirestore.instance.collection("Schedules");
+    CollectionReference collection =
+        FirebaseFirestore.instance.collection("Schedules");
     QuerySnapshot query = await collection.where("day", isEqualTo: day).get();
     if (query.size == 0) {
-      _isNull = true;
       _isLoading = false;
+      _isNull = true;
       setState(() {});
     } else {
       QuerySnapshot query = await collection.where("day", isEqualTo: day).get();
@@ -54,12 +56,7 @@ class _SchedulesState extends State<Schedules> {
                 fontFamily: "LilitaOne", fontSize: 30, color: Colors.black),
           ),
           const Spacer(),
-          const Icon(
-            Icons.notifications,
-            color: Colors.grey,
-            size: 27,
-          ),
-          const SizedBox(width: 20),
+          notifs(),
           Builder(
             builder: (context) {
               return IconButton(
@@ -74,10 +71,6 @@ class _SchedulesState extends State<Schedules> {
           ),
           const SizedBox(width: 20),
           GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Mykid()));
-            },
             child: Container(
               height: 35,
               width: 35,
@@ -95,9 +88,8 @@ class _SchedulesState extends State<Schedules> {
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(width: 5),
+                      Spacer(),
                       ElevatedButton(
                           onPressed: () => {
                                 setState(() {
@@ -138,6 +130,7 @@ class _SchedulesState extends State<Schedules> {
                               )
                             ],
                           )),
+                      Spacer(),
                       ElevatedButton(
                           onPressed: () => {
                                 setState(() {
@@ -178,6 +171,7 @@ class _SchedulesState extends State<Schedules> {
                               )
                             ],
                           )),
+                      Spacer(),
                       ElevatedButton(
                           onPressed: () => {
                                 setState(() {
@@ -218,6 +212,7 @@ class _SchedulesState extends State<Schedules> {
                               )
                             ],
                           )),
+                      Spacer(),
                       ElevatedButton(
                           onPressed: () => {
                                 setState(() {
@@ -258,6 +253,7 @@ class _SchedulesState extends State<Schedules> {
                               )
                             ],
                           )),
+                      Spacer(),
                       ElevatedButton(
                           onPressed: () => {
                                 setState(() {
@@ -298,6 +294,7 @@ class _SchedulesState extends State<Schedules> {
                               )
                             ],
                           )),
+                      Spacer(),
                       ElevatedButton(
                           onPressed: () => {
                                 setState(() {
@@ -338,7 +335,7 @@ class _SchedulesState extends State<Schedules> {
                               )
                             ],
                           )),
-                      SizedBox(width: 5),
+                      Spacer()
                     ],
                   ),
                   if (!_isNull)

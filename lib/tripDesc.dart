@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:nursery/MyKid.dart';
+import 'package:nursery/Components/notif.dart';
 import 'package:nursery/nav.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -51,12 +51,7 @@ class _tripDescState extends State<tripDesc> {
                   fontFamily: "LilitaOne", fontSize: 30, color: Colors.black),
             ),
             const Spacer(),
-            const Icon(
-              Icons.notifications,
-              color: Colors.grey,
-              size: 27,
-            ),
-            Spacer(),
+            notifs(),
             Builder(
               builder: (context) {
                 return IconButton(
@@ -71,10 +66,6 @@ class _tripDescState extends State<tripDesc> {
             ),
             Spacer(),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Mykid()));
-              },
               child: Container(
                 height: 35,
                 width: 35,
@@ -213,7 +204,7 @@ class _tripDescState extends State<tripDesc> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   image: const DecorationImage(
-                                      image: AssetImage("images/memories.png"),
+                                      image: AssetImage("assets/images/memories.png"),
                                       fit: BoxFit.cover)),
                             ),
                           ),

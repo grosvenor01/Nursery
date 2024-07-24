@@ -11,10 +11,7 @@ void main() async {
   options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
+    MyApp(), // Wrap your app
   );
 }
 class MyApp extends StatelessWidget {

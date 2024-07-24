@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:nursery/MyKid.dart';
+import 'package:nursery/Components/notif.dart';
+
 import 'package:nursery/nav.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -45,12 +46,7 @@ class _ActivityState extends State<Activity> {
                 fontFamily: "LilitaOne", fontSize: 30, color: Colors.black),
           ),
           const Spacer(),
-          const Icon(
-            Icons.notifications,
-            color: Colors.grey,
-            size: 27,
-          ),
-          const SizedBox(width: 20),
+          notifs(),
           Builder(
             builder: (context) {
               return IconButton(
@@ -65,10 +61,7 @@ class _ActivityState extends State<Activity> {
           ),
           const SizedBox(width: 20),
           GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Mykid()));
-            },
+            
             child: Container(
               height: 35,
               width: 35,

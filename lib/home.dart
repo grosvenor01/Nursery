@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:nursery/MyKid.dart';
+import 'package:nursery/Components/notif.dart';
 import 'package:nursery/nav.dart';
 
 class home extends StatefulWidget {
@@ -19,7 +19,6 @@ class _homeState extends State<home> {
         FirebaseFirestore.instance.collection("Activity");
     QuerySnapshot query = await collection.get();
     data.addAll(query.docs);
-    print(data);
     setState(() {});
   }
 
@@ -56,73 +55,7 @@ class _homeState extends State<home> {
                   fontFamily: "LilitaOne", fontSize: 30, color: Colors.black),
             ),
             const Spacer(),
-            PopupMenuButton(
-              icon: const Icon(
-                Icons.notifications,
-                color: Colors.grey,
-                size: 27,
-              ),
-              onOpened: () async {
-                Notifs = [];
-                CollectionReference collection =
-                    FirebaseFirestore.instance.collection("Notification");
-                QuerySnapshot snapshot = await collection.get();
-                Notifs.addAll(snapshot.docs);
-                _GetNotifs = true;
-                setState(() {});
-              },
-              onCanceled: () {
-                _GetNotifs = false;
-                setState(() {});
-              },
-              itemBuilder: (context) => [
-                for (var i in Notifs)
-                  PopupMenuItem(
-                    child: Container(
-                      padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  i["Title"],
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14.0,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                ),
-                                SizedBox(height: 3.0),
-                                Text(
-                                  i["Content"],
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 8.0),
-                          Container(
-                            height: 10,
-                            width: 10,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.blue,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-              ],
-            ),
+            notifs(),
             Builder(
               builder: (context) {
                 return IconButton(
@@ -137,10 +70,6 @@ class _homeState extends State<home> {
             ),
             const SizedBox(width: 20),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Mykid()));
-              },
               child: Container(
                 height: 35,
                 width: 35,
@@ -231,7 +160,7 @@ class _homeState extends State<home> {
                         width: screenWidth * 0.35,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("images/kid.png"),
+                              image: AssetImage("assets/images/kid.png"),
                               fit: BoxFit.cover),
                         ),
                       ),

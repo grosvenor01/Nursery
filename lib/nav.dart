@@ -37,7 +37,7 @@ class _NavState extends State<Nav> {
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: AssetImage("images/profile.png"),
+                          image: AssetImage("assets/images/profile.png"),
                           fit: BoxFit.cover)),
                 ),
                 const Column(
@@ -47,7 +47,7 @@ class _NavState extends State<Nav> {
                     Padding(
                       padding: EdgeInsets.only(left: 3),
                       child: const Text(
-                        "Saidi \nAbdelkader",
+                        "Nursery\n Menu",
                         style: TextStyle(
                             fontFamily: "LilitaOne",
                             fontSize: 25,

@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:nursery/Components/notif.dart';
 import 'package:nursery/Components/trip.dart';
-import 'package:nursery/MyKid.dart';
 import 'package:nursery/nav.dart';
 
 class Trips extends StatefulWidget {
@@ -44,12 +43,7 @@ class _TripsState extends State<Trips> {
                   fontFamily: "LilitaOne", fontSize: 30, color: Colors.black),
             ),
             const Spacer(),
-            const Icon(
-              Icons.notifications,
-              color: Colors.grey,
-              size: 27,
-            ),
-            const SizedBox(width: 20),
+            notifs(),
             Builder(
               builder: (context) {
                 return IconButton(
@@ -64,10 +58,6 @@ class _TripsState extends State<Trips> {
             ),
             const SizedBox(width: 20),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Mykid()));
-              },
               child: Container(
                 height: 35,
                 width: 35,
@@ -93,7 +83,7 @@ class _TripsState extends State<Trips> {
                   vertical: screenHeight * 0.05),
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("images/trip.png"),
+                      image: AssetImage("assets/images/trip.png"),
                       fit: BoxFit.contain)),
             ),
             Padding(

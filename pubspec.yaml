@@ -33,16 +33,17 @@ dependencies:
   device_preview: ^1.2.0
   timeline_tile: ^2.0.0
   cupertino_icons: ^1.0.6
-  
+  flutter_launcher_icons: ^0.13.1
   cloud_firestore: ^5.1.0
   firebase_core: ^3.2.0
   firebase_auth: ^5.1.2
   shimmer: ^3.0.0
 
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -50,6 +51,11 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/image.png"
+  min_sdk_android: 23
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
